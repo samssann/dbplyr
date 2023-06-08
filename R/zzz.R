@@ -21,6 +21,7 @@
   methods::setOldClass(c("sql", "character"), sql())
 
   base_scalar$`%>%` <- magrittr::`%>%`
+  set_in_transaction_on()
 }
 
 # Silence R CMD check note:
