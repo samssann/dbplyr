@@ -47,6 +47,14 @@ unique_subquery_name_reset <- function() {
   options(dbplyr_subquery_name = 0)
 }
 
+set_in_transaction_on <- function() {
+  options(dbplyr_in_transaction = TRUE)
+}
+
+set_in_transaction_off <- function() {
+  options(dbplyr_in_transaction = FALSE)
+}
+
 succeeds <- function(x, quiet = FALSE) {
   tryCatch(
     {
