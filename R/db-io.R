@@ -35,7 +35,7 @@ db_copy_to <-  function(con, table, values,
                         overwrite = FALSE, types = NULL, temporary = TRUE,
                         unique_indexes = NULL, indexes = NULL,
                         analyze = TRUE, ...,
-                        in_transaction = TRUE) {
+                        in_transaction = getOption("dbplyr_in_transaction")) {
   UseMethod("db_copy_to")
 }
 #' @export
@@ -43,7 +43,7 @@ db_copy_to.DBIConnection <- function(con, table, values,
                             overwrite = FALSE, types = NULL, temporary = TRUE,
                             unique_indexes = NULL, indexes = NULL,
                             analyze = TRUE, ...,
-                            in_transaction = TRUE) {
+                            in_transaction = getOption("dbplyr_in_transaction")) {
 
   new <- db_table_temporary(con, table, temporary)
   table <- new$table
