@@ -55,7 +55,7 @@ copy_to.src_sql <- function(dest,
                             indexes = NULL,
                             analyze = TRUE,
                             ...,
-                            in_transaction = TRUE) {
+                            in_transaction = getOption("dbplyr_in_transaction")) {
   check_bool(temporary)
 
   if (!is.data.frame(df) && !inherits(df, "tbl_sql")) {
